@@ -1,2 +1,6 @@
 ---
 # handlers file for yauh.munin
+- name: restart nginx
+  action: service name=nginx state=restarted
+- name: restart munin
+  action: service name=munin state=restarted

@@ -1,2 +1,9 @@
 ---
 # defaults file for yauh.munin
+munin_address: '*'
+munin_port: 4949
+munin_directory: munin
+munin_nginx_port: 80
+munin_users:
+  - name: admin
+    password: password

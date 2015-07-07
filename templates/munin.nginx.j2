@@ -1,0 +1,25 @@
+server {
+  server_name munin.{{ ansible_fqdn }};
+  listen {{ munin_nginx_port }};
+  root /var/cache/munin/www/;
+  # Restrict Munin access
+  auth_basic "Restricted";
+  auth_basic_user_file /etc/nginx/users.passwd;
+  location / {
+    index index.html;
+    access_log off;
+  }
+  
+
+}
+
+ server {
+       listen 127.0.0.1;
+       server_name localhost;
+       location /nginx_status {
+               stub_status on;
+               access_log off;
+               allow 127.0.0.1;
+               deny all;
+       }
+ }

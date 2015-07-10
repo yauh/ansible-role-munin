@@ -1,3 +1,4 @@
+# {{ ansible_managed }}
 server {
   server_name munin.{{ ansible_fqdn }};
   listen {{ munin_nginx_port }};
@@ -9,7 +10,7 @@ server {
     index index.html;
     access_log off;
   }
-  
+
 
 }
 

@@ -5,7 +5,7 @@ server {
   root /var/cache/munin/www/;
   # Restrict Munin access
   auth_basic "Restricted";
-  auth_basic_user_file /etc/nginx/users.passwd;
+  auth_basic_user_file /etc/nginx/munin.users;
   location / {
     index index.html;
     access_log off;

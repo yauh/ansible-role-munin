@@ -1,6 +1,5 @@
 ---
 # tasks file for yauh.munin
-
 - name: Monitoring via munin-node will be installed
   action: apt pkg={{ item }} state=installed update_cache=yes cache_valid_time=3600
   with_items:
@@ -20,6 +19,10 @@
 - name: Configure master
   include: master.yml
   when: munin_master is defined
+
+- name: Remove nginx from regular nodes
+  apt: pkg=nginx state=absent
+  when: munin_master is not defined
 
 - name: Munin should be restarted
   action: service name=munin-node state=restarted

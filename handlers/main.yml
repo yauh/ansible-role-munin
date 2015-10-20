@@ -4,3 +4,5 @@
   action: service name=nginx state=restarted
 - name: restart munin
   action: service name=munin state=restarted
+- name: restart munin-node
+  action: service name=munin-node state=restarted

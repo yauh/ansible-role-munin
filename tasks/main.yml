@@ -19,7 +19,7 @@
 
 - name: Configure master
   include: master.yml
-  when: 'munin-master' in group_names
+  when: "'munin-master' in group_names"
 
 - name: Munin should be restarted
   action: service name=munin-node state=restarted
